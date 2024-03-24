@@ -1,24 +1,31 @@
-# README
+# Members only
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introduction
 
-Things you may want to cover:
+In this project, you’ll be building an exclusive clubhouse where your members can write anonymous posts. Inside the clubhouse, members can see who the author of a post is but, outside, they can only see the story and wonder who wrote it.
 
-* Ruby version
+## Data model
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```mermaid
+---
+title: Micro reddit
+---
+erDiagram
+    USER ||--o{ POST : write
+    USER {
+        int id
+        string name
+        string email
+        string password
+        datetime created_at
+        datetime updated_at
+    }
+    POST {
+        int id
+        string title
+        text body
+        int author_id 
+        datetime created_at
+        datetime updated_at
+    }
+```
